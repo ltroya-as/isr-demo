@@ -9,6 +9,12 @@ export default defineNuxtConfig({
   routeRules: {
     '/': {
       isr: 3600
+    },
+    '/custom-endpoint-usage': {
+      isr: 3600
+    },
+    '/api/time': {
+      isr: 3600
     }
   }
 })
