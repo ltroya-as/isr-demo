@@ -17,6 +17,9 @@ interface TimeResponse {
   utc_offset: string;
 }
 
-// Using Nuxt's built-in composable for data fetching
-const { data: time } = await useFetch<TimeResponse>('http://worldtimeapi.org/api/timezone/UTC');
+// Server-only fetch to ensure ISR consistency
+const { data: time } = await useFetch<TimeResponse>('http://worldtimeapi.org/api/timezone/UTC', {
+  server: true,
+  default: () => null
+});
 </script>
