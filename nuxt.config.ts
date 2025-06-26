@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': {
-      isr: 600 // Cache for 10 minutes
+      isr: 3600
     }
   }
 })
