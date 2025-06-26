@@ -8,13 +8,22 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': {
-      isr: 3600
+      isr: 3600,
+      headers: {
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate=86400'
+      }
     },
     '/custom-endpoint-usage': {
-      isr: 3600
+      isr: 3600,
+      headers: {
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate=86400'
+      }
     },
     '/api/time': {
-      isr: 3600
+      isr: 3600,
+      headers: {
+        'Cache-Control': 's-maxage=3600, stale-while-revalidate=86400'
+      }
     }
   }
 })
