@@ -17,7 +17,5 @@ interface TimeResponse {
   utc_offset: string;
 }
 
-const { data: time } = await useFetch<TimeResponse>('/api/time', {
-  server: true
-});
+const { data: time } = await useFetch<TimeResponse>('/api/time');
 </script>

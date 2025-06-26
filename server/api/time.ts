@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'Failed to fetch time'
+      statusMessage: error instanceof Error ? error.message : 'Internal Server Error',
     });
   }
 });
