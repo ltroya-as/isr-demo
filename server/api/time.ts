@@ -1,13 +1,14 @@
 export default defineEventHandler(async (event) => {
   try {
-    const response = await $fetch<{
-      datetime: string;
-      timezone: string;
-      utc_datetime: string;
-      utc_offset: string;
-    }>('http://worldtimeapi.org/api/timezone/UTC');
-
-    return response;
+    const now = new Date();
+    const utcNow = new Date(now.getTime() + (now.getTimezoneOffset() * 60000));
+    
+    return {
+      datetime: now.toISOString(),
+      timezone: 'UTC',
+      utc_datetime: utcNow.toISOString(),
+      utc_offset: '+00:00'
+    };
   } catch (error) {
     throw createError({
       statusCode: 500,
